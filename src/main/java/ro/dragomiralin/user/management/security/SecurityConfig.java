@@ -22,6 +22,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .hasAuthority("SCOPE_read")
                 .antMatchers(HttpMethod.POST, "/api/foos")
                 .hasAuthority("SCOPE_write")
+                .antMatchers("/actuator/health").permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
